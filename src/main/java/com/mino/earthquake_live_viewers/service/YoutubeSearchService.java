@@ -1,6 +1,7 @@
 package com.mino.earthquake_live_viewers.service;
 
 import com.google.api.client.json.jackson2.JacksonFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
@@ -14,10 +15,16 @@ import java.security.GeneralSecurityException;
 @Service
 public class YoutubeSearchService {
 
+    private final String apiKey;
 
-    private static final String API_KEY = "${google.api_key}"; // 발급받은 API 키를 입력하세요.
-    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    public static String getLiveViewers(String videoId) throws GeneralSecurityException, IOException {
+    public YoutubeSearchService(@Value("${google-api.api_key}")String apiKey) {
+        this.apiKey = apiKey; // youtube api key
+    }
+
+    private final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
+
+
+    public String getLiveViewers(String videoId) throws GeneralSecurityException, IOException {
         YouTube youtube = new YouTube.Builder(
                 GoogleNetHttpTransport.newTrustedTransport(),
                 JSON_FACTORY,
@@ -26,7 +33,8 @@ public class YoutubeSearchService {
         // Videos: list 엔드포인트 사용
         YouTube.Videos.List request = youtube.videos()
                 .list("liveStreamingDetails"); // 실시간 시청자수는 liveStreamingDetails 필드에 포함됩니다.
-        request.setKey(API_KEY);
+
+        request.setKey(apiKey);
         request.setId(videoId); // 조회할 동영상 ID를 설정합니다.
         VideoListResponse response = request.execute();
         // 응답에서 실시간 시청자수를 파싱합니다.
