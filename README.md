@@ -1,6 +1,10 @@
 
 # 🫨🌋 지진 라이브 시청자수 알림 시스템 <br> (Earthquake Live Viewer Count Notification System)
 
+## 개발기간 
+
+### 25.09.02 ~
+
 ## 설계사항
 
 ### 📺 유튜브 API V3 
@@ -22,4 +26,5 @@
   - 현재 시청자수 및 시간당 증가수 제공
  
   
+
 
