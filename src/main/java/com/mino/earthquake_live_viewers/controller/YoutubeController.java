@@ -15,12 +15,6 @@ public class YoutubeController {
 
     private final YoutubeKakaoTalkService youtubeVideoService;
 
-    @GetMapping("/concurrent")
-    public ResponseEntity<ConCurrent> getConcurrentViewers() {
-
-        return ResponseEntity.ok();
-    }
-
 
 
 }
