@@ -1,6 +1,4 @@
-package com.mino.earthquake_live_viewers.model;
-
-import java.time.LocalDateTime;
+package com.mino.earthquake_live_viewers.model.youtube;
 
 public record LiveStreamingDetails(Integer concurrentViewers,
                                    String activeLiveChatId) {

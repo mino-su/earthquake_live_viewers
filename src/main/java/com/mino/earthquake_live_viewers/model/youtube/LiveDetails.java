@@ -1,4 +1,4 @@
-package com.mino.earthquake_live_viewers.model;
+package com.mino.earthquake_live_viewers.model.youtube;
 
 import java.util.List;
 

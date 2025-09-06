@@ -1,4 +1,4 @@
-package com.mino.earthquake_live_viewers.model;
+package com.mino.earthquake_live_viewers.model.youtube;
 
 public record Items(String id, LiveStreamingDetails liveStreamingDetails) {
 
